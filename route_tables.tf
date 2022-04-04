@@ -9,12 +9,12 @@ resource "aws_route" "public" {
   depends_on             = [aws_route_table.public]
 }
 
-resource "aws_route" "public_ipv6" {
+/* resource "aws_route" "public_ipv6" {
   route_table_id              = aws_route_table.public.id
   destination_ipv6_cidr_block = "::/0"
   egress_only_gateway_id      = aws_egress_only_internet_gateway.egress.id
   depends_on                  = [aws_route_table.public]
-}
+} */
 
 resource "aws_route_table" "private" {
   vpc_id = aws_vpc.vpc.id
@@ -27,9 +27,9 @@ resource "aws_route" "private" {
   depends_on             = [aws_route_table.private]
 }
 
-resource "aws_route" "private_ipv6" {
+/* resource "aws_route" "private_ipv6" {
   route_table_id              = aws_route_table.private.id
   destination_ipv6_cidr_block = "::/0"
   egress_only_gateway_id      = aws_egress_only_internet_gateway.egress.id
   depends_on                  = [aws_route_table.private]
-}
+} */
